@@ -7,6 +7,40 @@
 
 
 
+.navbar {
+    background: linear-gradient(135deg, #27045a, #4e4c53); /* Gradient background */
+    padding: 10px 20px; /* Padding for navbar */
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.navbar-nav .nav-link {
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #f8f9fa; /* Light color on hover */
+    text-decoration: underline; /* Underline on hover */
+}
+
+.navbar-nav .nav-link.active {
+    font-weight: bold;
+    color: #f8f9fa; /* Highlighted color for active link */
+}
+
+.navbar-toggler {
+    border-color: #6c757d; /* Border color for the toggler */
+}
+
+.navbar-toggler-icon {
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiIgdmlld0JveD0iMCAwIDEyIDEyIj4KPHBhdGggZmlsbD0iIzYwNjA1MCIgc3Ryb2tlLWxpbmU9InJvdW5kIiBzdHJva2UtbGluZT0icm91bmQiIHN0cm9rZS13aWR0aD0iMSIgc3Ryb2tlLWRhc2hlbGxvci1yYW5nZT0iMDciIHN0cm9rZS1kYXNoZWxsb3I9IjAiIHN0cm9rZS1vcGFjaXR5PSIxIiBzdHJva2Utb3BhY2l0eT0iMC43Ij4KPHBhdGggZD0iTTEuMjggNC4yTDEwLjggMTEuNEwxMS42IDEuM2wwLTEuM2MtMS4xIDAtMS4xIDAtMS41IDAtMS41Ii8+CjxwYXRoIGQ9Ik0xMiAyM0wxMiA4TDE2IDgsMTIgOCwwTDEyIDB6Ii8+Cjwvc3ZnPg=='); /* Custom icon image */
+}
+
+
 
 .caption {
     font-size: 0.875rem;
