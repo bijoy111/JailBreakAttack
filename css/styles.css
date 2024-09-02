@@ -37,7 +37,7 @@
 }
 
 .navbar-toggler-icon {
-    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiIgdmlld0JveD0iMCAwIDEyIDEyIj4KPHBhdGggZmlsbD0iIzYwNjA1MCIgc3Ryb2tlLWxpbmU9InJvdW5kIiBzdHJva2UtbGluZT0icm91bmQiIHN0cm9rZS13aWR0aD0iMSIgc3Ryb2tlLWRhc2hlbGxvci1yYW5nZT0iMDciIHN0cm9rZS1kYXNoZWxsb3I9IjAiIHN0cm9rZS1vcGFjaXR5PSIxIiBzdHJva2Utb3BhY2l0eT0iMC43Ij4KPHBhdGggZD0iTTEuMjggNC4yTDEwLjggMTEuNEwxMS42IDEuM2wwLTEuM2MtMS4xIDAtMS4xIDAtMS41IDAtMS41Ii8+CjxwYXRoIGQ9Ik0xMiAyM0wxMiA4TDE2IDgsMTIgOCwwTDEyIDB6Ii8+Cjwvc3ZnPg=='); /* Custom icon image */
+    background-image: url('../images/navbar2.png'); /* Custom icon image */
 }
 
 
@@ -159,6 +159,136 @@ h2 {
 }
 
 
+
+
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.15rem;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 0.85rem;
+    }
+
+    .container-box {
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+    .scrollable-box {
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+        padding-bottom: 8px;
+    }
+
+    .user-text, .llm-text {
+        padding: 8px;
+        font-size: 0.875rem;
+        max-width: 90%;
+    }
+
+    .llm-icon {
+        left: -20px;
+        width: 16px;
+        height: 16px;
+    }
+
+    .form-select {
+        width: 100%;
+    }
+
+    .caption {
+        font-size: 0.75rem;
+    }
+
+    .bibtex-box {
+        padding: 10px;
+        font-size: 0.875rem;
+    }
+
+    /* Abstract section adjustments */
+    #abstract p {
+        font-size: 0.95rem; /* Smaller font size */
+        line-height: 1.5; /* Adjust line height for readability */
+        padding: 10px; /* Adjust padding for smaller screens */
+        text-align: justify; /* Ensure justified text */
+    }
+
+    #abstract h2 {
+        font-size: 1.2rem; /* Slightly smaller header */
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar {
+        padding: 5px 10px;
+    }
+
+    .navbar-brand {
+        font-size: 1rem;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 0.75rem;
+    }
+
+    .container-box {
+        padding: 8px;
+    }
+
+    .scrollable-box {
+        padding: 8px;
+    }
+
+    h2 {
+        font-size: 1rem;
+        margin-bottom: 8px;
+        padding-bottom: 6px;
+    }
+
+    .user-text, .llm-text {
+        padding: 6px;
+        font-size: 0.75rem;
+        max-width: 100%;
+    }
+
+    .llm-icon {
+        left: -18px;
+        width: 14px;
+        height: 14px;
+    }
+
+    .caption {
+        font-size: 0.625rem;
+    }
+
+    .bibtex-box {
+        padding: 8px;
+        font-size: 0.75rem;
+    }
+
+    /* Abstract section adjustments */
+    #abstract p {
+        font-size: 0.85rem; /* Further reduce font size */
+        line-height: 1.4; /* Adjust line height */
+        padding: 8px; /* Reduce padding */
+        text-align: justify;
+    }
+
+    #abstract h2 {
+        font-size: 1rem; /* Smaller header */
+        margin-bottom: 10px;
+    }
+}
+
 /* 
 .container {
     max-width: 1200px;
@@ -196,3 +326,6 @@ h2 {
     border-radius: 5px;
     margin-bottom: 30px;
 } */
+
+
+

@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function() {
                             index++;
                             addMessage(); // Add next message
                         }
-                    }, 10); // Adjust typing speed (milliseconds per character)
+                    }, 0); // Adjust typing speed (milliseconds per character)
                 } else {
                     div.innerHTML = message.text;
                     index++;
