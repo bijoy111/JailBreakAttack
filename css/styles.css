@@ -29,6 +29,23 @@ figure {
     max-width: 1200px;
 }
 
+.container-box {
+    background-color: #f9f9f9; /* Light background color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+    padding: 20px; /* Padding inside the box */
+    margin-bottom: 30px; /* Space between containers */
+    border-radius: 8px; /* Slightly rounded corners */
+}
+
+h2 {
+    color: #34495e;
+    border-bottom: 2px solid #ecf0f1;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+
 .scrollable-box {
     max-height: 400px; /* Adjust as needed */
     overflow-y: auto;
