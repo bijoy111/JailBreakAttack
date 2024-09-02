@@ -141,6 +141,24 @@ h2 {
 }
 
 
+.bibtex-box {
+    background-color: #d2d0d0;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow-x: auto; /* Enables horizontal scrolling if needed */
+    text-align: left; /* Aligns text to the left */
+    font-family: "Fira Code", Courier, monospace; /* Monospace font for code */
+}
+
+.bibtex-box pre {
+    margin: 1;
+    white-space: pre-wrap; /* Allows text to wrap in the pre element */
+    overflow-x: auto; /* Enables horizontal scrolling if needed */
+}
+
+
 /* 
 .container {
     max-width: 1200px;
