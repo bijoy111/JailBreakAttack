@@ -31,10 +31,16 @@ figure {
 
 .container-box {
     background-color: #f9f9f9; /* Light background color */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
     padding: 20px; /* Padding inside the box */
     margin-bottom: 30px; /* Space between containers */
     border-radius: 8px; /* Slightly rounded corners */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transition */
+}
+
+.container-box:hover {
+    transform: translateY(-5px); /* Slightly lift the container */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Increase shadow for focus effect */
 }
 
 h2 {
@@ -44,6 +50,7 @@ h2 {
     margin-bottom: 20px;
     font-weight: bold;
 }
+
 
 
 .scrollable-box {
