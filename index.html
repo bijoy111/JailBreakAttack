@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Paper Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="./css/styles.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Title</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#video-demo">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#glance">Quick Glance</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#abstract">Abstract</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#overview">Attack Overview</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#examples">Examples</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#results">Results</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#bibtex">Bibtex</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <header class="text-center my-5">
+            <h1 class="display-4">Please Suggest a Catchy Title :&quot;) </h1>
+            <p class="lead">
+                <a href="https://scholar.google.com/citations?user=AUTHOR1ID" target="_blank" class="text-decoration-none">Author 1</a><sup>1</sup>, 
+                <a href="https://scholar.google.com/citations?user=AUTHOR2ID" target="_blank" class="text-decoration-none">Author 2</a><sup>2</sup>, 
+                <a href="https://scholar.google.com/citations?user=AUTHOR3ID" target="_blank" class="text-decoration-none">Author 3</a><sup>2</sup>, 
+                <a href="https://scholar.google.com/citations?user=AUTHOR4ID" target="_blank" class="text-decoration-none">Author 4</a><sup>2</sup>
+            </p>
+            <p class="text-muted" style="font-style: italic;">
+                <span class="d-block">1. Pennsylvania State University, PA, USA</span>
+                <span class="d-block">2. Bangladesh University of Engineering and Technology, Dhaka, Bangladesh</span>
+            </p>
+            <div class="d-flex justify-content-center mt-4">
+                <a href="#" class="btn btn-danger rounded-pill mx-2">
+                    <i class="fa-sharp fa-regular fa-file-pdf"></i> Paper
+                </a>
+                <a href="#" class="btn btn-danger rounded-pill mx-2">
+                    <i class="fa-brands fa-youtube"></i> Video Demonstration
+                </a>
+                <a href="#" class="btn btn-danger rounded-pill mx-2">
+                    <i class="fas fa-code me-2"></i> Code
+                </a>
+            </div>
+        </header>
+        
+
+
+        <section  class="my-5">
+            <div class="container text-center px-5">
+                <figure class="text-center">
+                    <img src="./images/jailbroken_llm.jpeg" alt="Jailbroken LLM" style="max-width: 50%; max-height: 50%;">
+                    <figcaption class="caption mt-2 text-justify" style="text-align: justify;">
+                        
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+
+
+        
+        <section id="glance" class="my-5">
+            <div class="container text-center px-5">
+                <div>
+                    <h2 class="d-inline">Video Demonstration</h2>
+                    <span class="d-inline" style="font-size: 1rem;">(A Quick Glance)</span>
+                </div>
+                <div class="ratio ratio-16x9 mt-4">
+                    <iframe src="https://www.youtube.com/embed/your-video-id" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+        
+        
+        
+
+        <section id="abstract" class="my-5">
+            <div class="container text-center px-5">
+                <h2>Abstract</h2>
+                <p class="text-justify" style="text-align: justify;">
+                    As Large Language Models (LLMs) become increasingly integrated into diverse applications, their susceptibility to misuse for generating harmful content poses significant security risks. This paper introduces novel jailbreak attacks designed to exploit these vulnerabilities by embedding harmful prompts within seemingly benign sequences, such as game environments, dialogue completions, and question banks. Our methodology leverages automated template-based formatting to obfuscate malicious content, requiring minimal manual effort and only black-box access. We evaluate the effectiveness of these attacks on both open-source and closed-source models, demonstrating their ability to bypass existing safety mechanisms. Our findings reveal critical gaps in current LLM defenses, underscoring the need for more robust security measures. This research contributes to a deeper understanding of LLM vulnerabilities and provides a foundation for developing more resilient safeguards.
+                </p>
+            </div>
+        </section>
+
+
+
+
+
+        <section id="overview" class="my-5">
+            <div class="container text-center px-5">
+                <h2>Attack Overview</h2>
+                <figure class="text-center">
+                    <img src="./images/whole_diagram.svg" alt="Attack Overview" style="max-width: 100%; height: auto;">
+                    <figcaption class="caption mt-2">
+                        This figure presents the workflow of our general attack on a target LLM using template-based prompt
+                        engineering. The attack starts with generating a template (labeled as 1) that disguises harmful content. The attacker
+                        then selects a suitable template (labeled as 2) and creates or chooses a harmful target prompt (labeled as 3). The
+                        prompt is then reformatted according to the selected template (labeled as 4-5). Finally, the restructured prompt is
+                        submitted to the target LLM, bypassing safety mechanisms and generating a harmful response (labeled as 6). This
+                        workflow illustrates the sequential steps involved in embedding harmful prompts into innocuous contexts, enabling
+                        attacks through creative prompt engineering.
+                    </figcaption>
+                </figure>
+                <p class="text-justify mt-4">
+                    Attack description goes here...
+                </p>
+            </div>
+        </section>
+        
+        
+        
+        
+        <!-- <section id="examples" class="my-5">
+            <div class="container text-center px-5">
+                <h2>Examples</h2>
+                
+            </div>
+        </section> -->
+        
+       
+
+
+
+        <section id="examples" class="my-5">
+            <div class="container px-5">
+                <h2 class="text-center">Examples</h2>
+        
+                <!-- Dropdown for selecting examples -->
+                <div class="d-flex justify-content-between mb-3">
+                    <select id="model-select" class="form-select w-25 me-2">
+                        <option selected>Select Model</option>
+                        <option value="gpt">GPT</option>
+                        <option value="claude">Claude</option>
+                        <!-- Add more models as needed -->
+                    </select>
+                    <select id="template-select" class="form-select w-25 me-2">
+                        <option selected>Select Template</option>
+                        <!-- Add template options -->
+                    </select>
+                    <select id="category-select" class="form-select w-25">
+                        <option selected>Select Category</option>
+                        <!-- Add category options -->
+                    </select>
+                </div>
+                <div class="text-center mb-3">
+                    <select class="form-select" id="example-selector">
+                        <option value="option1" selected>Example 1</option>
+                        <option value="option2">Example 2</option>
+                        <option value="option3">Example 3</option>
+                    </select>
+                </div>
+        
+                <!-- Scrollable Box -->
+                <div class="scrollable-box border p-3 rounded">
+                    <div id="text-container" class="text-justify"></div>
+                </div>
+            </div>
+        </section>
+        
+        
+       
+        
+        
+        
+        <section id="results" class="my-5">
+            <div class="container text-center px-5">
+                <h2>Results</h2>
+                <!-- <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <canvas id="chart1"></canvas>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <canvas id="chart2"></canvas>
+                    </div>
+                </div> -->
+            </div>
+        </section>
+
+
+        <section id="ethics" class="my-5">
+            <div class="container text-center px-5">
+                <h2>Ethics and disclosure</h2>
+                <p class="text-justify mt-4">
+                    Ethics and disclosure goes here...
+                </p>
+            </div>
+        </section>
+
+
+
+        <section id="bibtex" class="my-5">
+            <div class="container text-center px-5">
+                <h2>Bibtex</h2>
+                
+            </div>
+        </section>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+</html>
