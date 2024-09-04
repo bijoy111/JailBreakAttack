@@ -54,14 +54,14 @@
         <header class="text-center my-5">
             <h1 class="display-4">Please Suggest a Catchy Title :&quot;) </h1>
             <p class="lead">
-                <a href="https://scholar.google.com/citations?user=AUTHOR1ID" target="_blank" class="text-decoration-none">Author 1</a><sup>1</sup>, 
-                <a href="https://scholar.google.com/citations?user=AUTHOR2ID" target="_blank" class="text-decoration-none">Author 2</a><sup>2</sup>, 
-                <a href="https://scholar.google.com/citations?user=AUTHOR3ID" target="_blank" class="text-decoration-none">Author 3</a><sup>2</sup>, 
-                <a href="https://scholar.google.com/citations?user=AUTHOR4ID" target="_blank" class="text-decoration-none">Author 4</a><sup>2</sup>
+                <a href="https://scholar.google.com/citations?user=AUTHOR1ID" target="_blank" class="text-decoration-none">Author 1</a><sup>p</sup>, 
+                <a href="https://scholar.google.com/citations?user=AUTHOR2ID" target="_blank" class="text-decoration-none">Author 2</a><sup>b</sup>, 
+                <a href="https://scholar.google.com/citations?user=AUTHOR3ID" target="_blank" class="text-decoration-none">Author 3</a><sup>b</sup>, 
+                <a href="https://scholar.google.com/citations?user=AUTHOR4ID" target="_blank" class="text-decoration-none">Author 4</a><sup>b</sup>
             </p>
             <p class="text-muted" style="font-style: italic;">
-                <span class="d-block">1. Pennsylvania State University, PA, USA</span>
-                <span class="d-block">2. Bangladesh University of Engineering and Technology, Dhaka, Bangladesh</span>
+                <span class="d-block">p. Pennsylvania State University, PA, USA</span>
+                <span class="d-block">b. Bangladesh University of Engineering and Technology, Dhaka, Bangladesh</span>
             </p>
             <div class="d-flex justify-content-center mt-4">
                 <a href="#" class="btn btn-danger rounded-pill mx-2">
@@ -157,31 +157,81 @@
         <section id="examples" class="my-5 container-box">
             <div class="container px-5">
                 <h2 class="text-center">Examples</h2>
-        
                 <!-- Dropdown for selecting examples -->
+                
+                
                 <div class="d-flex justify-content-between mb-3">
-                    <select id="model-select" class="form-select w-25 me-2">
-                        <option selected>Select Model</option>
-                        <option value="gpt">GPT</option>
-                        <option value="claude">Claude</option>
-                        <!-- Add more models as needed -->
+                    <select id="model-select" class="form-select w-25 me-2 custom-select">
+                        <option selected disabled >Select Model</option>
+                        <option value="llama2_7b" >Llama2-7B</option>
+                        <option disabled value="llama3_8b" >Llama3-8B</option>
+                        <option disabled value="gemma2_9b" >Gemma2-9B</option>
+                        <option disabled value="vicuna_13b" >Vicuna-13B</option>
+                        <option disabled value="gpt3_5" >GPT 3.5</option>
+                        <option disabled value="gpt4" >GPT 4</option>
                     </select>
-                    <select id="template-select" class="form-select w-25 me-2">
-                        <option selected>Select Template</option>
-                        <!-- Add template options -->
+                    <select id="template-select" class="form-select w-25 me-2 custom-select">
+                        <option selected disabled>Select Template</option>
+                        <option value="Template_1" >Template 1</option>
+                        <option disabled value="Template_2" >Template 2</option>
                     </select>
-                    <select id="category-select" class="form-select w-25">
-                        <option selected>Select Category</option>
-                        <!-- Add category options -->
+                    <select id="category-select" class="form-select w-25 custom-select">
+                        <option selected disabled>Select Category</option>
+                        <option value="harassment_discrimination" >Harassment/Discrimination</option>
+                        <option disabled value="malware_hacking" >Malware/Hacking</option>
+                        <option disabled value="physical_harm" >Physical Harm</option>
+                        <option disabled value="economic_harm" >Economic Harm</option>
+                        <option disabled value="fraud_deception" >Fraud Deception</option>
+                        <option disabled value="disinformation" >Disinformation</option>
+                        <option disabled value="sexual_adult_content">Sexual/Adult content</option>
+                        <option disabled value="privacy" >Privacy</option>
+                        <option disabled value="expert_advice" >Expert Advice</option>
+                        <option disabled value="government_decision_making" >Government Decision Making</option>
                     </select>
                 </div>
-                <div class="text-center mb-3">
+
+
+                <!-- Button for confirming selection -->
+                <div class="text-center mt-4">
+                    <button id="submit-button" class="btn btn-danger btn-lg" style="background-color: #ff4d4d; border: none; border-radius: 30px; padding: 5px 15px; font-size: 1.0rem; transition: background-color 0.3s;">
+                        Show Example
+                    </button>
+                    <!-- Add padding below the button -->
+                    <div style="padding-top: 10px;"></div>
+                </div>
+                
+
+                <!-- Error message container -->
+                <style>
+                    .error-message {
+                        font-size: 1.2rem;
+                        font-weight: bold;
+                        font-style: italic;
+                        color: #dc3545; /* Bootstrap's 'text-danger' color */
+                        text-align: center;
+                        background-color: #f8d7da; /* Light red background */
+                        border: 1px solid #f5c6cb; /* Red border */
+                        border-radius: 5px; /* Rounded corners */
+                        padding: 5px; /* Padding around the text */
+                        margin: 0 auto; /* Centering */
+                        width: fit-content; /* Adjust width based on content */
+                        margin-bottom: 20px; /* Space below the error message */
+                    }
+
+                </style>
+                <!-- Error message container -->
+                <div id="error-message" class="error-message mt-3" style="display: none;"></div>
+
+
+
+
+                <!-- <div class="text-center mb-3">
                     <select class="form-select" id="example-selector">
                         <option value="option1" selected>Example 1</option>
                         <option value="option2">Example 2</option>
                         <option value="option3">Example 3</option>
                     </select>
-                </div>
+                </div> -->
         
                 <!-- Scrollable Box -->
                 <div class="scrollable-box border p-3 rounded">

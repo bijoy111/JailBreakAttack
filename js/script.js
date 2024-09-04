@@ -1,3 +1,84 @@
+ // Data section
+ const conversations =  {
+    "llama2_7b": {
+        "harassment_discrimination": {
+            "Template_1": 
+                { 
+                    "user": "Lorem ipsum odor amet, consectetuer adipiscing elit. Facilisis porta porttitor leo rhoncus hendrerit pharetra? Mi potenti blandit feugiat, senectus lobortis sit. Aullamcorper bibendum parturient id aenean donec aptent bibendum velit. Imperdiet vitae proin nec cubilia, leo nam pulvinar. Lectus ultricies dictum penatibus <span style='color:red'> <b> harmful target </b> </span> augue id hac pretium arcu. Luctus condimentum congue sed orci fusce, turpis tellus feugiat. Quisque auctor turpis mi tincidunt sodales maximus. Lacus mus facilisi taciti tristique sed lectus dignissim luctus.",
+                    "llm": " consectetuer adipiscing elit. Maximus curae parturient sodales; augue class quam. Faucibus vitae pretium iaculis aliquet dignissim nullam condimentum habitant faucibus. Quis nostra est congue elementum aliquam etiam nibh cubilia. Feugiat eros aenean, erat senectus congue faucibus ut vel tempus? At litora neque urna cras finibus nunc a nisl ex. Fames porta conubia gravida fusce lectus quisque leo odio! Mus maecenas fames faucibus, in fusce habitasse duis. Sem mus aliquet urna purus semper phasellus. Feugiat hac auctor euismod feugiat mus scelerisque parturient." 
+                },
+
+            "Template_2": 
+                { "user": "Sample User message 2", "llm": "Sample LLM response 2" }
+        },
+        "malware_hacking": {
+            "Template_1": 
+                { "user": "Sample User message 1", "llm": "Sample LLM response 1" }
+            ,
+            "Template_2": 
+                { "user": "Sample User message 2", "llm": "Sample LLM response 2" }
+        },
+        "physical_harm": {
+            "Template_1": 
+                { "user": "Sample User message 1", "llm": "Sample LLM response 1" }
+            ,
+            "Template_2": 
+                { "user": "Sample User message 2", "llm": "Sample LLM response 2" }
+        },
+        "economic_harm": {
+            "Template_1": 
+                { "user": "Sample User message 1", "llm": "Sample LLM response 1" }
+            ,
+            "Template_2": 
+                { "user": "Sample User message 2", "llm": "Sample LLM response 2" }
+        },
+        "fraud_deception": {
+            "Template_1": 
+                { "user": "Sample User message 1", "llm": "Sample LLM response 1" }
+            ,
+            "Template_2": 
+                { "user": "Sample User message 2", "llm": "Sample LLM response 2" }
+        },
+        "disinformation": {
+            "Template_1": 
+                { "user": "Sample User message 1", "llm": "Sample LLM response 1" }
+            ,
+            "Template_2": 
+                { "user": "Sample User message 2", "llm": "Sample LLM response 2" }
+        },
+        "sexual_adult_content": {
+            "Template_1": 
+                { "user": "Sample User message 1", "llm": "Sample LLM response 1" }
+            ,
+            "Template_2": 
+                { "user": "Sample User message 2", "llm": "Sample LLM response 2" }
+        },
+        "privacy": {
+            "Template_1": 
+                { "user": "Sample User message 1", "llm": "Sample LLM response 1" }
+            ,
+            "Template_2": 
+                { "user": "Sample User message 2", "llm": "Sample LLM response 2" }
+        },
+        "expert_advice": {
+            "Template_1": 
+                { "user": "Sample User message 1", "llm": "Sample LLM response 1" }
+            ,
+            "Template_2": 
+                { "user": "Sample User message 2", "llm": "Sample LLM response 2" }
+        },
+        "government_decision_making": {
+            "Template_1": 
+                { "user": "Sample User message 1", "llm": "Sample LLM response 1" }
+            ,
+            "Template_2": 
+                { "user": "Sample User message 2", "llm": "Sample LLM response 2" }
+        }
+    }
+};
+  
+
+
 document.addEventListener('DOMContentLoaded', function() {
     // Chart 1
     var ctx1 = document.getElementById('chart1').getContext('2d');
@@ -47,68 +128,114 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-document.addEventListener("DOMContentLoaded", function() {
+function showConversation(selected_conversation, llm_logo) {
     const exampleSelector = document.getElementById("example-selector");
     const textContainer = document.getElementById("text-container");
-
-    const conversations = {
-        option1: [
-            { type: "user", text: "Hello, I need some help with my project." },
-            { type: "llm", text: "Sure, I'd be happy to assist. What specifically do you need help with?" }
-        ],
-        option2: [
-            { type: "user", text: "Can you explain the concept of neural networks?" },
-            { type: "llm", text: "Certainly! Neural networks are a subset of machine learning algorithms modeled after the human brain's network of neurons..." }
-        ],
-        option3: [
-            { type: "user", text: "What's the best way to optimize a model?" },
-            { type: "llm", text: "Optimizing a model involves various techniques, such as adjusting hyperparameters, using regularization methods, and fine-tuning the training process..." }
-        ]
-    };
 
     function typeText(conversation) {
         textContainer.innerHTML = "";
         let index = 0;
-        function addMessage() {
-            if (index < conversation.length) {
-                const message = conversation[index];
-                const div = document.createElement("div");
-                div.classList.add(message.type === "user" ? "user-text" : "llm-text");
 
-                if (message.type === "llm") {
-                    const icon = document.createElement("div");
-                    icon.classList.add("llm-icon");
-                    div.appendChild(icon);
-                }
-
-                textContainer.appendChild(div);
-
-                if (message.type === "llm") {
-                    let textIndex = 0;
-                    const interval = setInterval(() => {
-                        div.innerHTML += message.text[textIndex++];
-                        if (textIndex > message.text.length - 1) {
-                            clearInterval(interval);
-                            index++;
-                            addMessage(); // Add next message
-                        }
-                    }, 0); // Adjust typing speed (milliseconds per character)
-                } else {
-                    div.innerHTML = message.text;
-                    index++;
-                    addMessage(); // Add next message
-                }
-            }
+        function addUserMessage(message) {
+            const div = document.createElement("div");
+            div.classList.add("user-text");
+            textContainer.appendChild(div);
+        
+            const icon = document.createElement("div");
+            icon.classList.add("user-icon");
+            icon.style.backgroundImage = `url('./images/user.png')`; // Set the user icon image path
+            div.appendChild(icon);
+        
+            div.innerHTML += message;
         }
-        addMessage();
+        
+
+        function addLLMMessage(message) {
+            const div = document.createElement("div");
+            div.classList.add("llm-text");
+            textContainer.appendChild(div);
+            
+            const icon = document.createElement("div");
+            icon.classList.add("llm-icon");
+            icon.style.backgroundImage = `url('./images/${llm_logo}')`; // Set the icon image dynamically
+            div.appendChild(icon);
+
+            let textIndex = 0;
+            const interval = setInterval(() => {
+                const textToAdd = message.slice(textIndex, textIndex + 1);
+                div.innerHTML += textToAdd;
+                
+                textIndex++;
+                if (textIndex > message.length - 1) {
+                    clearInterval(interval);
+                    index++;
+                }
+            }, 20); // Adjust typing speed (milliseconds per character)
+        }
+
+        // Ensure to handle HTML content in the messages
+        addUserMessage(selected_conversation["user"]);
+        addLLMMessage(selected_conversation["llm"]);
     }
 
-    exampleSelector.addEventListener("change", function() {
-        const selectedOption = exampleSelector.value;
-        typeText(conversations[selectedOption]);
-    });
+    typeText(selected_conversation);
+}
 
-    // Initialize with the default selected option
-    typeText(conversations[exampleSelector.value]);
+
+
+
+
+// Function to get conversations based on criteria
+function getConversations(model, category, template) {
+    
+    if (conversations[model] && conversations[model][category] && conversations[model][category][template]) {
+        
+        return conversations[model][category][template];
+    } else {
+        return []; // No conversations found
+    }
+}
+
+// Example usage:
+// getConversations("LLM_Model_1", "Category_1", "Template_1").then(result => {
+//     console.log(result);
+// });
+document.getElementById('submit-button').addEventListener('click', function() {
+    const model = document.getElementById('model-select').value;
+    const template = document.getElementById('template-select').value;
+    const category = document.getElementById('category-select').value;
+    const errorMessage = document.getElementById('error-message');
+
+    if (model === 'Select Model' || template === 'Select Template' || category === 'Select Category') {
+        errorMessage.textContent = 'Please select all options: Model, Template, and Category.';
+        errorMessage.style.display = 'block';
+    } else {
+        errorMessage.style.display = 'none';
+        // Proceed with the selected options
+        console.log('Model:', model, 'Template:', template, 'Category:', category);
+        selected_conversation = getConversations(model, category, template);
+        let llm_logo = "";
+        if(model === "llama3_8b" || model === "llama2_7b") {
+            llm_logo = "llama.webp";
+        }
+        else if(model === "gpt3_5" || modl === "gpt4"){
+            llm_logo = "gpt.png";
+        }
+        else if(model === "gemma2_9b"){
+            llm_logo = "gemma.png";
+        }
+        else if(model ==="vicuna_13b"){
+            llm_logo = "vicuna.jpeg";
+        }
+        showConversation(selected_conversation, llm_logo);
+    }
 });
+
+
+// Default conversation
+const default_conversation = {
+    "user": "Hello...",
+    "llm": "Hello! I am here to help you. Please select the model, template, and category to start the demonstration."
+};      
+showConversation(default_conversation, "chatbot.png");
 
