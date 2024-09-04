@@ -128,9 +128,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-function showConversation(selected_conversation, llm_logo) {
-    const exampleSelector = document.getElementById("example-selector");
-    const textContainer = document.getElementById("text-container");
+function showConversation(selected_conversation, llm_logo, type) {
+
+
+    let exampleSelector ;
+    let textContainer ;
+    if(type == 1){
+        exampleSelector = document.getElementById("example-selector1");
+        textContainer = document.getElementById("text-container1");
+    }
+    else if(type == 2){
+        exampleSelector = document.getElementById("example-selector2");
+        textContainer = document.getElementById("text-container2");
+    }
+    else if(type == 3){
+        exampleSelector = document.getElementById("example-selector3");
+        textContainer = document.getElementById("text-container3");
+    }
 
     function typeText(conversation) {
         textContainer.innerHTML = "";
@@ -200,11 +214,11 @@ function getConversations(model, category, template) {
 // getConversations("LLM_Model_1", "Category_1", "Template_1").then(result => {
 //     console.log(result);
 // });
-document.getElementById('submit-button').addEventListener('click', function() {
-    const model = document.getElementById('model-select').value;
-    const template = document.getElementById('template-select').value;
-    const category = document.getElementById('category-select').value;
-    const errorMessage = document.getElementById('error-message');
+document.getElementById('submit-button1').addEventListener('click', function() {
+    const model = document.getElementById('model-select1').value;
+    const template = document.getElementById('template-select1').value;
+    const category = document.getElementById('category-select1').value;
+    const errorMessage = document.getElementById('error-message1');
 
     if (model === 'Select Model' || template === 'Select Template' || category === 'Select Category') {
         errorMessage.textContent = 'Please select all options: Model, Template, and Category.';
@@ -227,9 +241,81 @@ document.getElementById('submit-button').addEventListener('click', function() {
         else if(model ==="vicuna_13b"){
             llm_logo = "vicuna.jpeg";
         }
-        showConversation(selected_conversation, llm_logo);
+        showConversation(selected_conversation, llm_logo, 1);
     }
 });
+
+
+
+document.getElementById('submit-button2').addEventListener('click', function() {
+    const model = document.getElementById('model-select2').value;
+    const template = document.getElementById('template-select2').value;
+    const category = document.getElementById('category-select2').value;
+    const errorMessage = document.getElementById('error-message2');
+
+    if (model === 'Select Model' || template === 'Select Template' || category === 'Select Category') {
+        errorMessage.textContent = 'Please select all options: Model, Template, and Category.';
+        errorMessage.style.display = 'block';
+    } else {
+        errorMessage.style.display = 'none';
+        // Proceed with the selected options
+        console.log('Model:', model, 'Template:', template, 'Category:', category);
+        selected_conversation = getConversations(model, category, template);
+        let llm_logo = "";
+        if(model === "llama3_8b" || model === "llama2_7b") {
+            llm_logo = "llama.webp";
+        }
+        else if(model === "gpt3_5" || modl === "gpt4"){
+            llm_logo = "gpt.png";
+        }
+        else if(model === "gemma2_9b"){
+            llm_logo = "gemma.png";
+        }
+        else if(model ==="vicuna_13b"){
+            llm_logo = "vicuna.jpeg";
+        }
+        showConversation(selected_conversation, llm_logo, 2);
+    }
+});
+
+
+
+
+
+document.getElementById('submit-button3').addEventListener('click', function() {
+    const model = document.getElementById('model-select3').value;
+    const template = document.getElementById('template-select3').value;
+    const category = document.getElementById('category-select3').value;
+    const errorMessage = document.getElementById('error-message3');
+
+    if (model === 'Select Model' || template === 'Select Template' || category === 'Select Category') {
+        errorMessage.textContent = 'Please select all options: Model, Template, and Category.';
+        errorMessage.style.display = 'block';
+    } else {
+        errorMessage.style.display = 'none';
+        // Proceed with the selected options
+        console.log('Model:', model, 'Template:', template, 'Category:', category);
+        selected_conversation = getConversations(model, category, template);
+        let llm_logo = "";
+        if(model === "llama3_8b" || model === "llama2_7b") {
+            llm_logo = "llama.webp";
+        }
+        else if(model === "gpt3_5" || modl === "gpt4"){
+            llm_logo = "gpt.png";
+        }
+        else if(model === "gemma2_9b"){
+            llm_logo = "gemma.png";
+        }
+        else if(model ==="vicuna_13b"){
+            llm_logo = "vicuna.jpeg";
+        }
+        showConversation(selected_conversation, llm_logo, 3);
+    }
+});
+
+
+
+
 
 
 // Default conversation
@@ -237,5 +323,7 @@ const default_conversation = {
     "user": "Hello...",
     "llm": "Hello! I am here to help you. Please select the model, template, and category to start the demonstration."
 };      
-showConversation(default_conversation, "chatbot.png");
+showConversation(default_conversation, "chatbot.png", 1);
+showConversation(default_conversation, "chatbot.png", 2);
+showConversation(default_conversation, "chatbot.png", 3);
 

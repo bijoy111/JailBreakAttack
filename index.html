@@ -155,14 +155,24 @@
 
 
         <section id="examples" class="my-5 container-box">
+
+            <!-- Question Bank -->
+            <div class="container text-center px-5">
+                <h2>Examples</h2>
+                <h2 class="text-center"> Question Bank Scenario</h2>
+                <figure class="text-center">
+                    <img src="./images/qb.svg" alt="Attack Overview" style="max-width: 60%; max-height: 60%;">
+                    <figcaption class="caption mt-2" style="text-align: center; padding-top:10px; padding-bottom: 10px;">
+                        Demonstration of jailbreak attack in question bank scenario. 
+                    </figcaption>
+                </figure>
+                
+            </div>
             <div class="container px-5">
-                <h2 class="text-center">Examples</h2>
                 <!-- Dropdown for selecting examples -->
-                
-                
                 <div class="d-flex justify-content-between mb-3">
-                    <select id="model-select" class="form-select w-25 me-2 custom-select">
-                        <option selected disabled >Select Model</option>
+                    <select id="model-select1" class="form-select w-25 me-2 custom-select">
+                        <option selected disabled >Select Victim Model</option>
                         <option value="llama2_7b" >Llama2-7B</option>
                         <option disabled value="llama3_8b" >Llama3-8B</option>
                         <option disabled value="gemma2_9b" >Gemma2-9B</option>
@@ -170,12 +180,12 @@
                         <option disabled value="gpt3_5" >GPT 3.5</option>
                         <option disabled value="gpt4" >GPT 4</option>
                     </select>
-                    <select id="template-select" class="form-select w-25 me-2 custom-select">
+                    <select id="template-select1" class="form-select w-25 me-2 custom-select">
                         <option selected disabled>Select Template</option>
                         <option value="Template_1" >Template 1</option>
                         <option disabled value="Template_2" >Template 2</option>
                     </select>
-                    <select id="category-select" class="form-select w-25 custom-select">
+                    <select id="category-select1" class="form-select w-25 custom-select">
                         <option selected disabled>Select Category</option>
                         <option value="harassment_discrimination" >Harassment/Discrimination</option>
                         <option disabled value="malware_hacking" >Malware/Hacking</option>
@@ -193,7 +203,7 @@
 
                 <!-- Button for confirming selection -->
                 <div class="text-center mt-4">
-                    <button id="submit-button" class="btn btn-danger btn-lg" style="background-color: #ff4d4d; border: none; border-radius: 30px; padding: 5px 15px; font-size: 1.0rem; transition: background-color 0.3s;">
+                    <button id="submit-button1" class="btn btn-danger btn-lg" style="background-color: #ff4d4d; border: none; border-radius: 30px; padding: 5px 15px; font-size: 1.0rem; transition: background-color 0.3s;">
                         Show Example
                     </button>
                     <!-- Add padding below the button -->
@@ -220,24 +230,184 @@
 
                 </style>
                 <!-- Error message container -->
-                <div id="error-message" class="error-message mt-3" style="display: none;"></div>
-
-
-
-
-                <!-- <div class="text-center mb-3">
-                    <select class="form-select" id="example-selector">
-                        <option value="option1" selected>Example 1</option>
-                        <option value="option2">Example 2</option>
-                        <option value="option3">Example 3</option>
-                    </select>
-                </div> -->
+                <div id="error-message1" class="error-message mt-3" style="display: none;"></div>
         
                 <!-- Scrollable Box -->
                 <div class="scrollable-box border p-3 rounded">
-                    <div id="text-container" class="text-justify"></div>
+                    <div id="text-container1" class="text-justify"></div>
                 </div>
             </div>
+
+
+
+
+            <!-- Dialogue -->
+            <div class="container text-center px-5">
+                <h2></h2>
+                <h2 class="text-center"> Dialogue Completion Scenario</h2>
+                <figure class="text-center">
+                    <img src="./images/dialogue.svg" alt="Attack Overview" style="max-width: 60%; max-height: 60%;">
+                    <figcaption class="caption mt-2" style="text-align: center; padding-top:10px; padding-bottom: 10px;">
+                        Demonstration of the jailbreak attack in dialogue completion scenario.
+                    </figcaption>
+                </figure>
+                
+            </div>
+            <div class="container px-5">
+                <!-- Dropdown for selecting examples -->
+                <div class="d-flex justify-content-between mb-3">
+                    <select id="model-select2" class="form-select w-25 me-2 custom-select">
+                        <option selected disabled >Select Victim Model</option>
+                        <option value="llama2_7b" >Llama2-7B</option>
+                        <option disabled value="llama3_8b" >Llama3-8B</option>
+                        <option disabled value="gemma2_9b" >Gemma2-9B</option>
+                        <option disabled value="vicuna_13b" >Vicuna-13B</option>
+                        <option disabled value="gpt3_5" >GPT 3.5</option>
+                        <option disabled value="gpt4" >GPT 4</option>
+                    </select>
+                    <select id="template-select2" class="form-select w-25 me-2 custom-select">
+                        <option selected disabled>Select Template</option>
+                        <option value="Template_1" >Template 1</option>
+                        <option disabled value="Template_2" >Template 2</option>
+                    </select>
+                    <select id="category-select2" class="form-select w-25 custom-select">
+                        <option selected disabled>Select Category</option>
+                        <option value="harassment_discrimination" >Harassment/Discrimination</option>
+                        <option disabled value="malware_hacking" >Malware/Hacking</option>
+                        <option disabled value="physical_harm" >Physical Harm</option>
+                        <option disabled value="economic_harm" >Economic Harm</option>
+                        <option disabled value="fraud_deception" >Fraud Deception</option>
+                        <option disabled value="disinformation" >Disinformation</option>
+                        <option disabled value="sexual_adult_content">Sexual/Adult content</option>
+                        <option disabled value="privacy" >Privacy</option>
+                        <option disabled value="expert_advice" >Expert Advice</option>
+                        <option disabled value="government_decision_making" >Government Decision Making</option>
+                    </select>
+                </div>
+
+
+                <!-- Button for confirming selection -->
+                <div class="text-center mt-4">
+                    <button id="submit-button2" class="btn btn-danger btn-lg" style="background-color: #ff4d4d; border: none; border-radius: 30px; padding: 5px 15px; font-size: 1.0rem; transition: background-color 0.3s;">
+                        Show Example
+                    </button>
+                    <!-- Add padding below the button -->
+                    <div style="padding-top: 10px;"></div>
+                </div>
+                
+
+                <!-- Error message container -->
+                <style>
+                    .error-message {
+                        font-size: 1.2rem;
+                        font-weight: bold;
+                        font-style: italic;
+                        color: #dc3545; /* Bootstrap's 'text-danger' color */
+                        text-align: center;
+                        background-color: #f8d7da; /* Light red background */
+                        border: 1px solid #f5c6cb; /* Red border */
+                        border-radius: 5px; /* Rounded corners */
+                        padding: 5px; /* Padding around the text */
+                        margin: 0 auto; /* Centering */
+                        width: fit-content; /* Adjust width based on content */
+                        margin-bottom: 20px; /* Space below the error message */
+                    }
+
+                </style>
+                <!-- Error message container -->
+                <div id="error-message2" class="error-message mt-3" style="display: none;"></div>
+        
+                <!-- Scrollable Box -->
+                <div class="scrollable-box border p-3 rounded">
+                    <div id="text-container2" class="text-justify"></div>
+                </div>
+            </div>
+
+
+
+
+            <!-- Game Environment -->
+            <div class="container text-center px-5">
+                <h2></h2>
+                <h2 class="text-center"> Game Environment</h2>
+                <figure class="text-center">
+                    <img src="./images/game.svg" alt="Attack Overview" style="max-width: 60%; max-height: 60%;">
+                    <figcaption class="caption mt-2" style="text-align: center; padding-top:10px; padding-bottom: 10px;">
+                        Demonstration of the jailbreak attack game environment scenario.
+                    </figcaption>
+                </figure>
+                
+            </div>
+            <div class="container px-5">
+                <!-- Dropdown for selecting examples -->
+                <div class="d-flex justify-content-between mb-3">
+                    <select id="model-select3" class="form-select w-25 me-2 custom-select">
+                        <option selected disabled >Select Victim Model</option>
+                        <option value="llama2_7b" >Llama2-7B</option>
+                        <option disabled value="llama3_8b" >Llama3-8B</option>
+                        <option disabled value="gemma2_9b" >Gemma2-9B</option>
+                        <option disabled value="vicuna_13b" >Vicuna-13B</option>
+                        <option disabled value="gpt3_5" >GPT 3.5</option>
+                        <option disabled value="gpt4" >GPT 4</option>
+                    </select>
+                    <select id="template-select3" class="form-select w-25 me-2 custom-select">
+                        <option selected disabled>Select Template</option>
+                        <option value="Template_1" >Template 1</option>
+                        <option disabled value="Template_2" >Template 2</option>
+                    </select>
+                    <select id="category-select3" class="form-select w-25 custom-select">
+                        <option selected disabled>Select Category</option>
+                        <option value="harassment_discrimination" >Harassment/Discrimination</option>
+                        <option disabled value="malware_hacking" >Malware/Hacking</option>
+                        <option disabled value="physical_harm" >Physical Harm</option>
+                        <option disabled value="economic_harm" >Economic Harm</option>
+                        <option disabled value="fraud_deception" >Fraud Deception</option>
+                        <option disabled value="disinformation" >Disinformation</option>
+                        <option disabled value="sexual_adult_content">Sexual/Adult content</option>
+                        <option disabled value="privacy" >Privacy</option>
+                        <option disabled value="expert_advice" >Expert Advice</option>
+                        <option disabled value="government_decision_making" >Government Decision Making</option>
+                    </select>
+                </div>
+
+
+                <!-- Button for confirming selection -->
+                <div class="text-center mt-4">
+                    <button id="submit-button3" class="btn btn-danger btn-lg" style="background-color: #ff4d4d; border: none; border-radius: 30px; padding: 5px 15px; font-size: 1.0rem; transition: background-color 0.3s;">
+                        Show Example
+                    </button>
+                    <!-- Add padding below the button -->
+                    <div style="padding-top: 10px;"></div>
+                </div>
+                
+
+                <!-- Error message container -->
+                <style>
+                    .error-message {
+                        font-size: 1.2rem;
+                        font-weight: bold;
+                        font-style: italic;
+                        color: #dc3545; /* Bootstrap's 'text-danger' color */
+                        text-align: center;
+                        background-color: #f8d7da; /* Light red background */
+                        border: 1px solid #f5c6cb; /* Red border */
+                        border-radius: 5px; /* Rounded corners */
+                        padding: 5px; /* Padding around the text */
+                        margin: 0 auto; /* Centering */
+                        width: fit-content; /* Adjust width based on content */
+                        margin-bottom: 20px; /* Space below the error message */
+                    }
+
+                </style>
+                <!-- Error message container -->
+                <div id="error-message3" class="error-message mt-3" style="display: none;"></div>
+        
+                <!-- Scrollable Box -->
+                <div class="scrollable-box border p-3 rounded">
+                    <div id="text-container3" class="text-justify"></div>
+                </div>
+            </div>
+
         </section>
         
         
