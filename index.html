@@ -425,61 +425,31 @@
         </section> -->
 
         <section id="results" class="my-5 container-box">
-    <div class="container text-center px-5">
-        <h2>Results</h2>
-        <div class="container px-5">
-            <!-- Main dropdowns container -->
-            <div class="d-flex justify-content-between mb-3">
-                <select id="experiment-select" class="form-select w-25 me-2 custom-select">
-                    <option selected disabled>Select Experiment Type</option>
-                    <option value="main_experiments">Main experiments</option>
-                    <option disabled value="baselines">Baselines</option>
-                    <option disabled value="defenses">Defenses</option>
-                    <option disabled value="ablation">Ablation study</option>
-                </select>
-
-                <select id="scenario-select" class="form-select w-25 me-2 custom-select" style="display: none;">
-                    <option selected disabled>Select Scenario</option>
-                    <option value="question_bank">Question Bank</option>
-                    <option value="dialogue_completion">Dialogue completion</option>
-                    <option value="game_environment">Game environment</option>
-                </select>
-
-                <select id="template-select" class="form-select w-25 me-2 custom-select" style="display: none;">
-                    <option selected disabled>Select Template</option>
-                    <option value="template_1">Template 1</option>
-                    <option value="template_2">Template 2</option>
-                </select>
-
-                <select id="judge-select" class="form-select w-25 me-2 custom-select" style="display: none;">
-                    <option selected disabled>Select Judge</option>
-                    <option value="gpt4o">Judge: Gpt4o</option>
-                    <option value="llama3">Judge: Llama3-70B</option>
-                </select>
-
-                <select id="model-select" class="form-select w-25 custom-select" style="display: none;">
-                    <option selected disabled>Select Model</option>
-                    <option value="llama2">Llama2</option>
-                    <option value="llama3">Llama3</option>
-                    <option value="gemma2">Gemma2</option>
-                    <option value="vicuna">Vicuna</option>
-                    <option value="gpt3_5">GPT 3.5</option>
-                    <option value="gpt4o">GPT 4o</option>
-                </select>
+            <div class="container text-center px-5">
+                <h2>Results</h2>
+                <div id="results-root"></div>
             </div>
+        </section>
 
-            <!-- Error message container -->
-            <div id="error-message" class="error-message mt-3" style="display: none;"></div>
+        <!-- Add these scripts before the closing body tag -->
+        <script type="module">
+            import React from 'react';
+            import ReactDOM from 'react-dom';
+            import { ResultsSection } from './ResultsSection.jsx';
+    
+            // Mount the React component
+            ReactDOM.render(
+                React.createElement(ResultsSection),
+                document.getElementById('results-root')
+            );
+        </script>
 
-            <!-- Results display container -->
-            <div class="scrollable-box border p-3 rounded" style="display: none;">
-                <div id="results-container" class="text-justify"></div>
-            </div>
-        </div>
-    </div>
-</section>
+        <!-- Make sure to include React and ReactDOM -->
+        <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
 
-
+        <!-- Include Babel for JSX transformation -->
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
         <section id="ethics" class="my-5 container-box">
             <div class="container text-center px-5">
