@@ -8,7 +8,6 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
     <link href="./css/styles.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
     <style>
         .form-select { margin-right: 10px; } /* adding spacing between dropdowns */
     </style>
@@ -429,10 +428,10 @@
             </div>
             <div class="d-flex flex-row my-3">
                 <select id="experiment-type" class="form-select">
-                    <option value="">Select Experiment Type</option>
-                    <option value="Main Experiments">Main Experiments</option>
-                    <option value="Baselines">Baselines</option>
-                    <option value="Defenses">Defenses</option>
+                    <option value="">Select Experiment</option>
+                    <option value="Main Experiments">Main Experiment</option>
+                    <option value="Baselines">Baseline</option>
+                    <option value="Defenses">Defense</option>
                     <option value="Ablation Study">Ablation Study</option>
                 </select>
                 <select id="experiment-category" class="form-select" style="display:none;">
@@ -458,7 +457,26 @@
             <div class="container text-center px-5">
                 <h2>Ethics and disclosure</h2>
                 <p class="text-justify mt-4">
-                    Ethics and disclosure goes here...
+                     This paper introduces the SequentialBreak methodology for generating novel jailbreak prompts that exploit
+                         sequential structures in Larg Language Models(LLMs).
+                         While these techniques could potentially be leveraged
+                         by adversaries to bypass safety mechanisms, the primary
+                         focus of this research is on enhancing LLM security and
+                         resilience. By identifying these vulnerabilities, we aim to
+                         raise awareness with in the AI community and contribute
+                         to the development of more robust defenses trategies.
+                         Our intention is to advance the security of LLMs in
+                         real-world applications by uncovering critical weaknesses
+                         and suggesting improvements. We believe that by sharing
+                         these insights, we can help accelerate the redevelopment of
+                         stronger safeguards that protect LLMs from similar attack
+                         vectors. This research is ethically driven, prioritizing the
+                         safe and responsible use of LLMs across diverse applications and user communities.
+                         To ensure responsible dissemination our findings,
+                         we will collaborate with the broader AI and security
+                         communities, encouraging ongoing research into LLM
+                         safetyandfosteringacollectiveefforttobuildmoresecure
+                         andreliableAIsystems.
                 </p>
             </div>
         </section>
