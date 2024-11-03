@@ -424,7 +424,7 @@
         <div class="container my-5">
             <div class="d-flex flex-row align-items-center">
                 <h2 class="me-auto">Results</h2>
-                <button onclick="window.history.back();" class="btn btn-secondary">Go Back</button>
+<!--                 <button onclick="window.history.back();" class="btn btn-secondary">Go Back</button> -->
             </div>
             <div class="d-flex flex-row my-3">
                 <select id="experiment-type" class="form-select">
@@ -457,26 +457,7 @@
             <div class="container text-center px-5">
                 <h2>Ethics and disclosure</h2>
                 <p class="text-justify mt-4">
-                     This paper introduces the SequentialBreak methodology for generating novel jailbreak prompts that exploit
-                         sequential structures in Larg Language Models(LLMs).
-                         While these techniques could potentially be leveraged
-                         by adversaries to bypass safety mechanisms, the primary
-                         focus of this research is on enhancing LLM security and
-                         resilience. By identifying these vulnerabilities, we aim to
-                         raise awareness with in the AI community and contribute
-                         to the development of more robust defenses trategies.
-                         Our intention is to advance the security of LLMs in
-                         real-world applications by uncovering critical weaknesses
-                         and suggesting improvements. We believe that by sharing
-                         these insights, we can help accelerate the redevelopment of
-                         stronger safeguards that protect LLMs from similar attack
-                         vectors. This research is ethically driven, prioritizing the
-                         safe and responsible use of LLMs across diverse applications and user communities.
-                         To ensure responsible dissemination our findings,
-                         we will collaborate with the broader AI and security
-                         communities, encouraging ongoing research into LLM
-                         safetyandfosteringacollectiveefforttobuildmoresecure
-                         andreliableAIsystems.
+                    This paper introduces the Sequential Break methodology for generating novel jailbreak prompts that exploit sequential structures in Larg Language Models(LLMs). While these techniques could potentially be leveraged by adversaries to bypass safety mechanisms, the primary focus of this research is on enhancing LLM security and resilience. By identifying these vulnerabilities, we aim to raise awareness with in the AI community and contribute to the development of more robust defenses strategies. Our intention is to advance the security of LLMs in real-world applications by uncovering critical weaknesses and suggesting improvements. We believe that by sharing these insights, we can help accelerate the redevelopment of stronger safeguards that protect LLMs from similar attack vectors. This research is ethically driven, prioritizing the safe and responsible use of LLMs across diverse applications and user communities. To ensure responsible dissemination our findings, we will collaborate with the broader AI and security communities, encouraging ongoing research into LLM safety and fostering a collective effort to build more secure and reliable AI systems.
                 </p>
             </div>
         </section>
@@ -556,7 +537,7 @@
         const expCategory = document.getElementById('experiment-category').value;
         const template = document.getElementById('template-type').value;
         const judge = document.getElementById('judge-type').value;
-        const path = `JailBreakAttack/results/1. ${expCategory}/${template}/Judge. ${judge}/${model}.csv`;
+        const path = `results/1. ${expCategory}/${template}/Judge. ${judge}/${model}.csv`;
         fetch(path)
             .then(response => response.text())
             .then(data => {
