@@ -414,11 +414,35 @@
 
         </section>
         
-        <section id="results" class="my-5 container-box">
+<!--         <section id="results" class="my-5 container-box">
             <div class="container text-center px-5">
                 <h2>Results</h2>
             </div>
-        </section>
+        </section> -->
+        <div class="container my-5">
+            <h2>Results</h2>
+            <select id="experiment-type" class="form-select">
+                <option value="">Select Experiment Type</option>
+                <option value="Main Experiments">Main Experiments</option>
+                <option value="Baselines">Baselines</option>
+                <option value="Defenses">Defenses</option>
+                <option value="Ablation Study">Ablation Study</option>
+            </select>
+            <select id="experiment-category" class="form-select mt-3" style="display:none;">
+                <!-- Options added dynamically -->
+            </select>
+            <select id="template-type" class="form-select mt-3" style="display:none;">
+                <!-- Options added dynamically -->
+            </select>
+            <select id="judge-type" class="form-select mt-3" style="display:none;">
+                <!-- Options added dynamically -->
+            </select>
+            <select id="model-type" class="form-select mt-3" style="display:none;">
+                <!-- Options added dynamically -->
+            </select>
+            <pre id="csv-display" class="mt-3" style="height: 500px; overflow: auto; background-color: #f8f8f8;"></pre>
+        </div>
+
 
 
         <section id="ethics" class="my-5 container-box">
@@ -454,6 +478,68 @@
         
 
     </div>
+
+    <script>
+    // Dynamic updates and CSV display based on selection
+    document.getElementById('experiment-type').addEventListener('change', function() {
+        const expType = this.value;
+        const expCategory = document.getElementById('experiment-category');
+        expCategory.style.display = 'block';
+        // Assuming Main Experiments contain these categories
+        if (expType === 'Main Experiments') {
+            expCategory.innerHTML = `<option value="">Select Category</option>
+                                     <option value="Question Bank">Question Bank</option>
+                                     <option value="Dialogue Completion">Dialogue Completion</option>
+                                     <option value="Game Environment">Game Environment</option>`;
+        }
+    });
+    
+    document.getElementById('experiment-category').addEventListener('change', function() {
+        const category = this.value;
+        const templateType = document.getElementById('template-type');
+        templateType.style.display = 'block';
+        templateType.innerHTML = `<option value="">Select Template</option>
+                                  <option value="Template 1">Template 1</option>
+                                  <option value="Template 2">Template 2</option>`;
+    });
+    
+    document.getElementById('template-type').addEventListener('change', function() {
+        const template = this.value;
+        const judgeType = document.getElementById('judge-type');
+        judgeType.style.display = 'block';
+        judgeType.innerHTML = `<option value="">Select Judge</option>
+                               <option value="GPT-4o">Judge: GPT-4o</option>
+                               <option value="Llama3-70B">Judge: Llama3-70B</option>`;
+    });
+    
+    document.getElementById('judge-type').addEventListener('change', function() {
+        const judge = this.value;
+        const modelType = document.getElementById('model-type');
+        modelType.style.display = 'block';
+        modelType.innerHTML = `<option value="">Select Model</option>
+                               <option value="Llama2">Llama2</option>
+                               <option value="Llama3">Llama3</option>
+                               <option value="Gemma2">Gemma2</option>
+                               <option value="Vicuna">Vicuna</option>
+                               <option value="GPT-3.5">GPT-3.5</option>
+                               <option value="GPT-4o">GPT-4o</option>`;
+    });
+    
+    document.getElementById('model-type').addEventListener('change', function() {
+        const model = this.value;
+        const expCategory = document.getElementById('experiment-category').value;
+        const template = document.getElementById('template-type').value;
+        const judge = document.getElementById('judge-type').value;
+        const path = `./results/1. ${expCategory}/${template}/Judge. ${judge}/${model}.csv`;
+        fetch(path)
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('csv-display').textContent = data;
+            })
+            .catch(err => document.getElementById('csv-display').textContent = 'Error loading CSV data.');
+    });
+    </script>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
