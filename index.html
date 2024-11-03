@@ -9,6 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
     <link href="./css/styles.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <style>
+        .form-select { margin-right: 10px; } /* adding spacing between dropdowns */
+    </style>
 </head>
 <body>
 
@@ -420,28 +423,34 @@
             </div>
         </section> -->
         <div class="container my-5">
-            <h2>Results</h2>
-            <select id="experiment-type" class="form-select">
-                <option value="">Select Experiment Type</option>
-                <option value="Main Experiments">Main Experiments</option>
-                <option value="Baselines">Baselines</option>
-                <option value="Defenses">Defenses</option>
-                <option value="Ablation Study">Ablation Study</option>
-            </select>
-            <select id="experiment-category" class="form-select mt-3" style="display:none;">
-                <!-- Options added dynamically -->
-            </select>
-            <select id="template-type" class="form-select mt-3" style="display:none;">
-                <!-- Options added dynamically -->
-            </select>
-            <select id="judge-type" class="form-select mt-3" style="display:none;">
-                <!-- Options added dynamically -->
-            </select>
-            <select id="model-type" class="form-select mt-3" style="display:none;">
-                <!-- Options added dynamically -->
-            </select>
+            <div class="d-flex flex-row align-items-center">
+                <h2 class="me-auto">Results</h2>
+                <button onclick="window.history.back();" class="btn btn-secondary">Go Back</button>
+            </div>
+            <div class="d-flex flex-row my-3">
+                <select id="experiment-type" class="form-select">
+                    <option value="">Select Experiment Type</option>
+                    <option value="Main Experiments">Main Experiments</option>
+                    <option value="Baselines">Baselines</option>
+                    <option value="Defenses">Defenses</option>
+                    <option value="Ablation Study">Ablation Study</option>
+                </select>
+                <select id="experiment-category" class="form-select" style="display:none;">
+                    <!-- Options added dynamically -->
+                </select>
+                <select id="template-type" class="form-select" style="display:none;">
+                    <!-- Options added dynamically -->
+                </select>
+                <select id="judge-type" class="form-select" style="display:none;">
+                    <!-- Options added dynamically -->
+                </select>
+                <select id="model-type" class="form-select" style="display:none;">
+                    <!-- Options added dynamically -->
+                </select>
+            </div>
             <pre id="csv-display" class="mt-3" style="height: 500px; overflow: auto; background-color: #f8f8f8;"></pre>
         </div>
+
 
 
 
@@ -480,18 +489,17 @@
     </div>
 
     <script>
-    // Dynamic updates and CSV display based on selection
     document.getElementById('experiment-type').addEventListener('change', function() {
         const expType = this.value;
         const expCategory = document.getElementById('experiment-category');
         expCategory.style.display = 'block';
-        // Assuming Main Experiments contain these categories
         if (expType === 'Main Experiments') {
             expCategory.innerHTML = `<option value="">Select Category</option>
                                      <option value="Question Bank">Question Bank</option>
                                      <option value="Dialogue Completion">Dialogue Completion</option>
                                      <option value="Game Environment">Game Environment</option>`;
         }
+        // Add more conditions for other types like Baselines, Defenses, Ablation Study if needed
     });
     
     document.getElementById('experiment-category').addEventListener('change', function() {
@@ -530,7 +538,7 @@
         const expCategory = document.getElementById('experiment-category').value;
         const template = document.getElementById('template-type').value;
         const judge = document.getElementById('judge-type').value;
-        const path = `./results/1. ${expCategory}/${template}/Judge. ${judge}/${model}.csv`;
+        const path = `JailBreakAttack/results/1. ${expCategory}/${template}/Judge. ${judge}/${model}.csv`;
         fetch(path)
             .then(response => response.text())
             .then(data => {
@@ -539,6 +547,7 @@
             .catch(err => document.getElementById('csv-display').textContent = 'Error loading CSV data.');
     });
     </script>
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
