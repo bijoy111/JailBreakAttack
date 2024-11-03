@@ -413,184 +413,66 @@
 
         </section>
         
-        
-       <section id="results" class="my-5 container-box">
-    <div class="container text-center px-5">
-        <h2>Results</h2>
-        <div class="container px-5">
-            <!-- Main dropdowns container -->
-            <div class="d-flex justify-content-between mb-3">
-                <select id="experiment-select" class="form-select w-25 me-2 custom-select">
-                    <option selected disabled>Select Experiment Type</option>
-                    <option value="main_experiments">Main experiments</option>
-                    <option disabled value="baselines">Baselines</option>
-                    <option disabled value="defenses">Defenses</option>
-                    <option disabled value="ablation">Ablation study</option>
-                </select>
-
-                <select id="scenario-select" class="form-select w-25 me-2 custom-select" style="display: none;">
-                    <option selected disabled>Select Scenario</option>
-                    <option value="question_bank">Question Bank</option>
-                    <option value="dialogue_completion">Dialogue completion</option>
-                    <option value="game_environment">Game environment</option>
-                </select>
-
-                <select id="template-select" class="form-select w-25 me-2 custom-select" style="display: none;">
-                    <option selected disabled>Select Template</option>
-                    <option value="template_1">Template 1</option>
-                    <option value="template_2">Template 2</option>
-                </select>
-
-                <select id="judge-select" class="form-select w-25 me-2 custom-select" style="display: none;">
-                    <option selected disabled>Select Judge</option>
-                    <option value="gpt4o">Judge: Gpt4o</option>
-                    <option value="llama3">Judge: Llama3-70B</option>
-                </select>
-
-                <select id="model-select" class="form-select w-25 custom-select" style="display: none;">
-                    <option selected disabled>Select Model</option>
-                    <option value="llama2">Llama2</option>
-                    <option value="llama3">Llama3</option>
-                    <option value="gemma2">Gemma2</option>
-                    <option value="vicuna">Vicuna</option>
-                    <option value="gpt3_5">GPT 3.5</option>
-                    <option value="gpt4o">GPT 4o</option>
-                </select>
-            </div>
-
-            <!-- Error message container -->
-            <div id="error-message" class="error-message mt-3" style="display: none;"></div>
-
-            <!-- Results display container -->
-            <div class="scrollable-box border p-3 rounded" style="display: none;">
-                <div id="results-container" class="text-justify"></div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<style>
-    .custom-select {
-        padding: 8px;
-        border-radius: 5px;
-        border: 1px solid #ced4da;
-        background-color: white;
-    }
-
-    .custom-select:disabled {
-        background-color: #e9ecef;
-    }
-
-    .scrollable-box {
-        max-height: 400px;
-        overflow-y: auto;
-        margin-top: 20px;
-    }
-
-    .error-message {
-        font-size: 1.2rem;
-        font-weight: bold;
-        font-style: italic;
-        color: #dc3545;
-        text-align: center;
-        background-color: #f8d7da;
-        border: 1px solid #f5c6cb;
-        border-radius: 5px;
-        padding: 5px;
-        margin: 0 auto;
-        width: fit-content;
-        margin-bottom: 20px;
-    }
-</style>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const experimentSelect = document.getElementById('experiment-select');
-    const scenarioSelect = document.getElementById('scenario-select');
-    const templateSelect = document.getElementById('template-select');
-    const judgeSelect = document.getElementById('judge-select');
-    const modelSelect = document.getElementById('model-select');
-    const errorMessage = document.getElementById('error-message');
-    const resultsContainer = document.getElementById('results-container');
-    const scrollableBox = document.querySelector('.scrollable-box');
-
-    // Show/hide dropdowns based on selection
-    experimentSelect.addEventListener('change', function() {
-        if (this.value === 'main_experiments') {
-            scenarioSelect.style.display = 'block';
-            resetSelections([scenarioSelect, templateSelect, judgeSelect, modelSelect]);
-        } else {
-            scenarioSelect.style.display = 'none';
-            templateSelect.style.display = 'none';
-            judgeSelect.style.display = 'none';
-            modelSelect.style.display = 'none';
-            showError('This experiment type is not available yet.');
-        }
-    });
-
-    scenarioSelect.addEventListener('change', function() {
-        templateSelect.style.display = 'block';
-        resetSelections([templateSelect, judgeSelect, modelSelect]);
-    });
-
-    templateSelect.addEventListener('change', function() {
-        judgeSelect.style.display = 'block';
-        resetSelections([judgeSelect, modelSelect]);
-    });
-
-    judgeSelect.addEventListener('change', function() {
-        modelSelect.style.display = 'block';
-        resetSelections([modelSelect]);
-    });
-
-    modelSelect.addEventListener('change', function() {
-        // Show results based on selections
-        const results = {
-            experiment: experimentSelect.value,
-            scenario: scenarioSelect.value,
-            template: templateSelect.value,
-            judge: judgeSelect.value,
-            model: modelSelect.value
-        };
-        displayResults(results);
-    });
-
-    function resetSelections(elements) {
-        elements.forEach(element => {
-            element.selectedIndex = 0;
-        });
-    }
-
-    function showError(message) {
-        errorMessage.textContent = message;
-        errorMessage.style.display = 'block';
-        scrollableBox.style.display = 'none';
-    }
-
-    function displayResults(selections) {
-        // Here you would typically fetch and display the excel data
-        resultsContainer.innerHTML = `
-            <h3>Selected Configuration:</h3>
-            <p>Experiment: ${selections.experiment}</p>
-            <p>Scenario: ${selections.scenario}</p>
-            <p>Template: ${selections.template}</p>
-            <p>Judge: ${selections.judge}</p>
-            <p>Model: ${selections.model}</p>
-            <p>Excel data would be displayed here.</p>
-        `;
-        errorMessage.style.display = 'none';
-        scrollableBox.style.display = 'block';
-    }
-});
-</script>
-        
-        
-        
 <!--         <section id="results" class="my-5 container-box">
             <div class="container text-center px-5">
                 <h2>Results</h2>
             </div>
         </section> -->
+
+        <section id="results" class="my-5 container-box">
+            <div class="container text-center px-5">
+                <h2>Results</h2>
+                <div id="results-selection">
+                    <!-- Main Experiment Type Dropdown -->
+                    <select id="experiment-type" class="form-select">
+                        <option value="" disabled selected>Select Experiment Type</option>
+                        <option value="main_experiments">Main Experiments</option>
+                        <option value="baselines">Baselines</option>
+                        <option value="defenses">Defenses</option>
+                        <option value="ablation_study">Ablation Study</option>
+                    </select>
+        
+                    <!-- Main Experiments Subtype Dropdown -->
+                    <select id="experiment-subtype" class="form-select" style="display: none;">
+                        <option value="" disabled selected>Select Experiment Subtype</option>
+                        <option value="question_bank">Question Bank</option>
+                        <option value="dialogue_completion">Dialogue Completion</option>
+                        <option value="game_environment">Game Environment</option>
+                    </select>
+        
+                    <!-- Template Dropdown -->
+                    <select id="template-type" class="form-select" style="display: none;">
+                        <option value="" disabled selected>Select Template</option>
+                        <option value="template_1">Template 1</option>
+                        <option value="template_2">Template 2</option>
+                    </select>
+        
+                    <!-- Judge Dropdown -->
+                    <select id="judge-type" class="form-select" style="display: none;">
+                        <option value="" disabled selected>Select Judge</option>
+                        <option value="judge_gpt4o">Judge: Gpt4o</option>
+                        <option value="judge_llama3-70B">Judge: Llama3-70B</option>
+                    </select>
+        
+                    <!-- Model Dropdown -->
+                    <select id="model-type" class="form-select" style="display: none;">
+                        <option value="" disabled selected>Select Model</option>
+                        <option value="llama2">Llama2</option>
+                        <option value="llama3">Llama3</option>
+                        <option value="gemma2">Gemma2</option>
+                        <option value="vicuna">Vicuna</option>
+                        <option value="gpt3_5">GPT 3.5</option>
+                        <option value="gpt4o">GPT 4o</option>
+                    </select>
+                </div>
+        
+                <!-- Placeholder for Excel Display -->
+                <div id="excel-display" class="mt-3">
+                    <!-- Content updated by JavaScript to show Excel data -->
+                </div>
+            </div>
+        </section>
+
 
         <section id="ethics" class="my-5 container-box">
             <div class="container text-center px-5">
@@ -629,5 +511,41 @@ document.addEventListener('DOMContentLoaded', function() {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="./js/script.js"></script>
+
+
+
+
+    <script>
+        document.getElementById('experiment-type').addEventListener('change', function() {
+            var type = this.value;
+            if (type === 'main_experiments') {
+                document.getElementById('experiment-subtype').style.display = 'block';
+            } else {
+                document.getElementById('experiment-subtype').style.display = 'none';
+                document.getElementById('template-type').style.display = 'none';
+                document.getElementById('judge-type').style.display = 'none';
+                document.getElementById('model-type').style.display = 'none';
+            }
+        });
+        
+        document.getElementById('experiment-subtype').addEventListener('change', function() {
+            document.getElementById('template-type').style.display = 'block';
+        });
+        
+        document.getElementById('template-type').addEventListener('change', function() {
+            document.getElementById('judge-type').style.display = 'block';
+        });
+        
+        document.getElementById('judge-type').addEventListener('change', function() {
+            document.getElementById('model-type').style.display = 'block';
+        });
+        
+        document.getElementById('model-type').addEventListener('change', function() {
+            var model = this.value;
+            // Placeholder for loading and displaying Excel data based on selected model
+            document.getElementById('excel-display').innerText = 'Displaying results for model: ' + model;
+        });
+    </script>
+
 </body>
 </html>
