@@ -8,6 +8,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
     <link href="./css/styles.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
 </head>
 <body>
 
@@ -450,7 +451,7 @@
                     <!-- Judge Dropdown -->
                     <select id="judge-type" class="form-select" style="display: none;">
                         <option value="" disabled selected>Select Judge</option>
-                        <option value="judge_gpt4o">Judge: Gpt4o</option>
+                        <option value="judge_gpt4o">Judge: GPT-4o</option>
                         <option value="judge_llama3-70B">Judge: Llama3-70B</option>
                     </select>
         
@@ -472,6 +473,7 @@
                 </div>
             </div>
         </section>
+
 
 
         <section id="ethics" class="my-5 container-box">
@@ -515,7 +517,7 @@
 
 
 
-    <script>
+<!--     <script>
         document.getElementById('experiment-type').addEventListener('change', function() {
             var type = this.value;
             if (type === 'main_experiments') {
@@ -545,7 +547,88 @@
             // Placeholder for loading and displaying Excel data based on selected model
             document.getElementById('excel-display').innerText = 'Displaying results for model: ' + model;
         });
-    </script>
+    </script> -->
+    document.addEventListener("DOMContentLoaded", function () {
+        const experimentType = document.getElementById("experiment-type");
+        const experimentSubtype = document.getElementById("experiment-subtype");
+        const templateType = document.getElementById("template-type");
+        const judgeType = document.getElementById("judge-type");
+        const modelType = document.getElementById("model-type");
+        const excelDisplay = document.getElementById("excel-display");
+    
+        // Display relevant dropdowns based on selection
+        experimentType.addEventListener("change", () => {
+            experimentSubtype.style.display = "block";
+        });
+    
+        experimentSubtype.addEventListener("change", () => {
+            templateType.style.display = "block";
+        });
+    
+        templateType.addEventListener("change", () => {
+            judgeType.style.display = "block";
+        });
+    
+        judgeType.addEventListener("change", () => {
+            modelType.style.display = "block";
+        });
+    
+        modelType.addEventListener("change", () => {
+            const selectedExperiment = experimentType.value;
+            const selectedSubtype = experimentSubtype.value;
+            const selectedTemplate = templateType.value;
+            const selectedJudge = judgeType.value;
+            const selectedModel = modelType.value;
+    
+            // Construct file path based on selections
+            const filePath = `results/${selectedExperiment}/1. ${selectedSubtype}/Template 1/Judge. ${selectedJudge}/1. ${selectedModel}/template-1, model-llama2, judge-gpt4o, goal, prompt, response, target_response.csv`;
+            
+            // Load CSV file and display content
+            loadCSV(filePath);
+        });
+    
+        // Function to load and parse CSV
+        function loadCSV(filePath) {
+            Papa.parse(filePath, {
+                download: true,
+                header: true,
+                complete: function (results) {
+                    displayCSV(results.data);
+                },
+                error: function (error) {
+                    excelDisplay.innerHTML = `<p>Error loading file: ${error.message}</p>`;
+                }
+            });
+        }
+    
+        // Function to display CSV data
+        function displayCSV(data) {
+            excelDisplay.innerHTML = ""; // Clear existing content
+    
+            const table = document.createElement("table");
+            table.classList.add("table", "table-bordered", "table-hover");
+    
+            const headerRow = document.createElement("tr");
+            Object.keys(data[0]).forEach((key) => {
+                const th = document.createElement("th");
+                th.textContent = key;
+                headerRow.appendChild(th);
+            });
+            table.appendChild(headerRow);
+    
+            data.forEach((row) => {
+                const dataRow = document.createElement("tr");
+                Object.values(row).forEach((cellData) => {
+                    const td = document.createElement("td");
+                    td.textContent = cellData;
+                    dataRow.appendChild(td);
+                });
+                table.appendChild(dataRow);
+            });
+    
+            excelDisplay.appendChild(table);
+        }
+    });
 
 </body>
 </html>
