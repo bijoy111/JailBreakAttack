@@ -497,9 +497,9 @@
         expCategory.style.display = 'block';
         if (expType === 'Main Experiments') {
             expCategory.innerHTML = `<option value="">Select Category</option>
-                                     <option value="Question Bank">Question Bank</option>
-                                     <option value="Dialogue Completion">Dialogue Completion</option>
-                                     <option value="Game Environment">Game Environment</option>`;
+                                     <option value="Question Bank">1. Question Bank</option>
+                                     <option value="Dialogue Completion">2. Dialogue Completion</option>
+                                     <option value="Game Environment">3. Game Environment</option>`;
         }
         // Add more conditions for other types like Baselines, Defenses, Ablation Study if needed
     });
@@ -527,12 +527,12 @@
         const modelType = document.getElementById('model-type');
         modelType.style.display = 'block';
         modelType.innerHTML = `<option value="">Select Model</option>
-                               <option value="Llama2">Llama2</option>
-                               <option value="Llama3">Llama3</option>
-                               <option value="Gemma2">Gemma2</option>
-                               <option value="Vicuna">Vicuna</option>
-                               <option value="GPT-3.5">GPT-3.5</option>
-                               <option value="GPT-4o">GPT-4o</option>`;
+                               <option value="Llama2">1. Llama-2</option>
+                               <option value="Llama3">2. Llama-3</option>
+                               <option value="Gemma2">3. Gemma-2</option>
+                               <option value="Vicuna">4. Vicuna</option>
+                               <option value="GPT-3.5">5. GPT-3.5</option>
+                               <option value="GPT-4o">6. GPT-4o</option>`;
     });
     
     document.getElementById('model-type').addEventListener('change', function() {
@@ -540,7 +540,7 @@
         const expCategory = document.getElementById('experiment-category').value;
         const template = document.getElementById('template-type').value;
         const judge = document.getElementById('judge-type').value;
-        const path1 = `results/1. ${expCategory}/${template}/Judge. ${judge}/${model}.csv`;
+        const path1 = `results/1. ${expType}/${expCategory}/${template}/Judge. ${judge}/${model}/file.csv`;    
         console.log('correct or not', path1);
         const path = `results/1. Main Experiments/1. Question Bank/Template 1/Judge.  GPT-4o/4. Vicuna!/template-1, model-vicuna, judge-gpt4o, goal, prompt, response, target_response.csv`;
         fetch(path)
