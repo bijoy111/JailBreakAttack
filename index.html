@@ -425,6 +425,20 @@
         <section id="asr" class="my-5 container-box">
             <div class="container text-center px-5">
                 <h2>Result ASR</h2>
+                <div class="d-flex flex-column align-items-center my-3">
+                    <!-- Dropdown for selecting experiment type -->
+                    <select id="asr-experiment-type" class="form-select w-50">
+                        <option value="">Select Experiment</option>
+                        <option value="images/ASR/main_experiments_asr.png">Main Experiments</option>
+                        <option value="images/ASR/baseline_asr.png">Baselines</option>
+                        <option value="images/ASR/defenses_asr.png">Defenses</option>
+                        <option value="images/ASR/ablation_asr1.png">Ablation Study 1</option>
+                        <option value="images/ASR/ablation_asr2.png">Ablation Study 2</option>
+                    </select>
+                    
+                    <!-- Image display area -->
+                    <img id="asr-image" src="" alt="ASR Result Image" class="mt-4" style="max-width: 100%; height: auto; display: none;">
+                </div>
             </div>
         </section>
 <!--         <div id="files" class="container my-5"> -->
@@ -494,6 +508,21 @@
         
 
     </div>
+
+    <script>
+        // JavaScript to update image based on dropdown selection
+        document.getElementById('asr-experiment-type').addEventListener('change', function() {
+            const imagePath = this.value;
+            const asrImage = document.getElementById('asr-image');
+            
+            if (imagePath) {
+                asrImage.src = imagePath;
+                asrImage.style.display = 'block'; // Show the image
+            } else {
+                asrImage.style.display = 'none'; // Hide the image if no selection
+            }
+        });
+    </script>
 
     <script>
     document.getElementById('experiment-type').addEventListener('change', function() {
