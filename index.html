@@ -537,11 +537,14 @@
     
     document.getElementById('model-type').addEventListener('change', function() {
         const model = this.value;
+        const expType = document.getElementById('experiment-type').value;
         const expCategory = document.getElementById('experiment-category').value;
         const template = document.getElementById('template-type').value;
         const judge = document.getElementById('judge-type').value;
         const path1 = `results/1. ${expType}/${expCategory}/${template}/Judge. ${judge}/${model}/file.csv`;    
         console.log('correct or not', path1);
+        const file='${expType}, ${expCategory}, ${template}, Judge. ${judge}, ${model}.csv';
+        console.log('file', file);
         const path = `results/1. Main Experiments/1. Question Bank/Template 1/Judge.  GPT-4o/4. Vicuna!/template-1, model-vicuna, judge-gpt4o, goal, prompt, response, target_response.csv`;
         fetch(path)
             .then(response => response.text())
