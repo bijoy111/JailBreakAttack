@@ -541,10 +541,10 @@
         const expCategory = document.getElementById('experiment-category').value;
         const template = document.getElementById('template-type').value;
         const judge = document.getElementById('judge-type').value;
-        const modelType = document.getElementById('model-type').value;
-        const file=`${expType}, ${expCategory}, ${template}, Judge. ${judge}, ${modelType}.csv`;
+        const mType = document.getElementById('modelType').value;
+        const file=`${expType}, ${expCategory}, ${template}, Judge. ${judge}, ${mType}.csv`;
         console.log('file', file);
-        const path1 = `results/1. ${expType}/${expCategory}/${template}/Judge. ${judge}/${modelType}/${file}`;    
+        const path1 = `results/1. ${expType}/${expCategory}/${template}/Judge. ${judge}/${mType}/${file}`;    
         console.log('correct or not', path1);
         const path = `results/1. Main Experiments/1. Question Bank/Template 1/Judge.  GPT-4o/4. Vicuna!/template-1, model-vicuna, judge-gpt4o, goal, prompt, response, target_response.csv`;
         fetch(path)
