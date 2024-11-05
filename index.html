@@ -429,9 +429,9 @@
                     <!-- Dropdown for selecting experiment type -->
                     <select id="asr-experiment-type" class="form-select w-50">
                         <option value="">Select Experiment</option>
-                        <option value="images/ASR/main_experiments_asr.png">Main Experiments</option>
-                        <option value="images/ASR/baseline_asr.png">Baselines</option>
-                        <option value="images/ASR/defenses_asr.png">Defenses</option>
+                        <option value="images/ASR/main_experiments_asr.png">Main Experiment</option>
+                        <option value="images/ASR/baseline_asr.png">Baseline</option>
+                        <option value="images/ASR/defenses_asr.png">Defense</option>
                         <option value="images/ASR/ablation_asr1.png">Ablation Study 1</option>
                         <option value="images/ASR/ablation_asr2.png">Ablation Study 2</option>
                     </select>
@@ -442,7 +442,8 @@
             </div>
         </section>
 <!--         <div id="files" class="container my-5"> -->
-        <section id="files" class=" my-5 container-box">
+        <section id="files" class="my-5 container-box">
+            <div class="container text-center px-5">
             <div class="d-flex flex-row align-items-center">
                 <h2 class="me-auto">Result Files</h2>
 <!--                 <button onclick="window.history.back();" class="btn btn-secondary">Go Back</button> -->
@@ -470,6 +471,7 @@
             </div>
             <button id="view-csv-button" class="btn btn-primary mt-3" style="display: none;">Download</button>
             <pre id="csv-display" class="mt-3" style="height: 500px; overflow: auto; background-color: #f8f8f8;"></pre>
+            </div>
         </section>
 
 
