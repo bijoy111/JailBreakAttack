@@ -541,7 +541,32 @@
         const expCategory = document.getElementById('experiment-category').value;
         const template = document.getElementById('template-type').value;
         const judge = document.getElementById('judge-type').value;
-        const mType = document.getElementById('modelType').value;
+        const modelType = document.getElementById('model-type').value;
+        let mType;
+        if(modelType==="Llama2")
+        {
+            mType="1. Llama-2";
+        }
+        else if(modelType==="Llama3")
+        {
+            mType="2. Llama-3";
+        }
+        else if(modelType==="Gemma2")
+        {
+            mType="3. Gemma-2";
+        }
+        else if(modelType==="Vicuna")
+        {
+            mType="4. Vicuna";
+        }
+        else if(modelType==="GPT-3.5")
+        {
+            mType="5. GPT-3.5";
+        }
+        else
+        {
+            mType="6. GPT-4o";
+        }
         const file=`${expType}, ${expCategory}, ${template}, Judge. ${judge}, ${mType}.csv`;
         console.log('file', file);
         const path1 = `results/1. ${expType}/${expCategory}/${template}/Judge. ${judge}/${mType}/${file}`;    
