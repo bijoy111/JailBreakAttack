@@ -541,7 +541,7 @@
         const expCategory = document.getElementById('experiment-category').value;
         const template = document.getElementById('template-type').value;
         const judge = document.getElementById('judge-type').value;
-        const modelType = document.getElementById('model-type');
+        const modelType = document.getElementById('model-type').value;
         const file=`${expType}, ${expCategory}, ${template}, Judge. ${judge}, ${modelType}.csv`;
         console.log('file', file);
         const path1 = `results/1. ${expType}/${expCategory}/${template}/Judge. ${judge}/${modelType}/${file}`;    
